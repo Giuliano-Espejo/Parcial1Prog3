@@ -1,0 +1,29 @@
+> Sin tests automatizados ni Strict TDD (regla del proyecto, DD-05). El único archivo que se crea es `README.md` en la raíz; ningún `*.html`, `*.css` ni `*.js` se modifica. Cargar `cognitive-doc-design` antes de redactar. Ningún resultado de caso manual se escribe sin que el usuario lo haya observado y lo informe (design D3, RN-GL-02). Las tareas marcadas **[usuario]** las ejecuta el usuario; el agente solo las marca `[x]` con su confirmación explícita.
+
+## 1. Verificación del estado a documentar (sin cambios)
+
+- [x] 1.1 Buscar `aviso-maqueta` en `*.html` y verificar que aparece exactamente en `libros.html` (`#aviso-libro`), `clientes.html` (`#aviso-cliente`), `ventas.html` (`#aviso-venta`) e `historial.html` (`#aviso-historial`), que cada texto empieza con "Pendiente — Etapa 2" y que `index.html` no tiene aviso; si algo difiere de design D2, ajustar D2/README (no la página) y anotarlo en este archivo.
+- [x] 1.2 Verificar en `js/comun.js` que la sección `// ===== Datos =====` define `EDITORIALES`, `GENEROS`, `AUTORES`, `LIBROS_SEMILLA` (6 elementos) y `CLIENTES_SEMILLA` (3), y que ningún `*.js` contiene `localStorage`; verificar que `img/tapas/` tiene exactamente `lib-1.svg` … `lib-6.svg` y que `js/ventas.js` y `js/historial.js` siguen siendo placeholders.
+- [x] 1.3 Verificar que en la raíz existen los cinco HTML, `css/`, `js/` e `img/`, y que todavía no existe `README.md`.
+
+## 2. Redacción del README (`README.md`)
+
+- [x] 2.1 Crear `README.md` con el título `# Librería TUP — TPI Programación III`, el párrafo inicial con la línea **Estado: avance de la Etapa 1**, y las secciones 1 (Autor), 2 (Cómo abrir el proyecto, pasos numerados sin npm/servidor/internet) y 3 (Navegación entre vistas, tabla Vista · Archivo · Para qué sirve) según design D1; verificar que hay un solo `#`, que "Giuliano Espejo" y "trabajo individual" aparecen antes de "Cómo abrir", y que los cinco archivos HTML figuran en la tabla.
+- [x] 2.2 Agregar la sección 4 "Maquetas e interacciones funcionales" con la tabla por vista de design D2 (cinco vistas + fila "Todas") y la línea sobre el aviso "Pendiente — Etapa 2"; verificar que cada vista con `p.aviso-maqueta` (tarea 1.1) tiene su maqueta declarada, que Catálogo figura sin maqueta y que ninguna alta, venta, historial ni persistencia aparece como funcional.
+- [x] 2.3 Agregar las secciones 5 (Funcionalidades: `### Implementadas` y `### Pendientes (Etapa 2)`), 6 (Datos iniciales: `js/comun.js`, sección de datos, 6 libros y 3 clientes, datos en memoria que se recrean al recargar) y 7 (Persistencia con `localStorage`: todavía no se usa, llega en la Etapa 2); verificar que las pendientes incluyen altas de libros y clientes, venta, historial y `localStorage`, cada una con "Etapa 2", y que el README no describe ninguna clave ni comportamiento de `localStorage` como implementado.
+- [x] 2.4 Agregar la sección 8 "Casos manuales" con la tabla A1–A12 de design D3 (columnas # · Caso · Entrada / pasos · Resultado esperado · Chrome · Firefox) y todas las celdas Chrome/Firefox con el texto literal "Pendiente de ejecutar", más el encabezado `### Controles de alcance` vacío de resultados; verificar que hay 12 filas y 24 celdas "Pendiente de ejecutar".
+- [x] 2.5 Agregar las secciones 9 (Imágenes: las seis tapas de `img/tapas/` son SVG de elaboración propia del autor; no hay imágenes de terceros) y 10 (Contenido de la entrega: árbol con los cinco HTML, `css/`, `js/`, `img/tapas/` y `README.md`, sin dependencias ni build) según design D1 y D4; verificar que el árbol coincide con los archivos reales listados en la tarea 1.3.
+
+## 3. Controles y revisión del README
+
+- [x] 3.1 Ejecutar la búsqueda de `innerHTML`, `outerHTML`, `insertAdjacentHTML`, `document.write` y `type="module"` en `*.html` y `*.js`, y de `http://` / `https://` en `*.html`, `*.css` y `*.js`; registrar en `### Controles de alcance` el resultado realmente obtenido por cada búsqueda (design D6) y verificar que coincide con la salida del comando.
+- [x] 3.2 Revisar el README completo: buscar `npm`, `npx`, `yarn` y `node` (solo pueden aparecer para decir que no hacen falta), `http://` / `https://` (ninguna), fechas o canal de entrega (ninguno, design D5) y las palabras "OK" / "Aprobado" en la tabla de casos (ninguna todavía); verificar también que los enlaces relativos apuntan a archivos existentes y que la redacción sigue `cognitive-doc-design` (secciones cortas, tablas antes que prosa).
+
+## 4. Resultados de los casos manuales [usuario]
+
+- [x] 4.1 **[usuario]** Pedirle al usuario que ejecute A1–A12 en Chrome y en Firefox (abriendo con `file://`, sin conexión) y que informe el resultado observado de cada caso y navegador; escribir en cada celda exactamente lo informado (por ejemplo "OK: 3 tarjetas" o la descripción de la falla) y dejar "Pendiente de ejecutar" en lo que no haya informado. La nota global de C-03 no cuenta como resultado. Verificar que cada celda distinta de "Pendiente de ejecutar" corresponde a una respuesta explícita del usuario en la conversación.
+
+## 5. Carpeta y zip del avance [usuario]
+
+- [x] 5.1 **[usuario]** Armar la entrega en Windows según design D4: carpeta nueva fuera del proyecto (por ejemplo `TPI-Libreria-Espejo-avance-etapa-1`), copiar los cinco HTML, `css/`, `js/`, `img/` y `README.md`, y comprimirla con clic derecho → "Comprimir en archivo ZIP" (o "Enviar a → Carpeta comprimida"); el agente no crea el zip ni scripts. Verificar abriendo el zip que contiene solo esos elementos y ninguno de `knowledge-base/`, `discovery/`, `openspec/`, `.claude/`, `.atl/`, `AGENTS.md`, `CLAUDE.md`, `CHANGES.md`, `.active-orchestrator-state.json` ni el PDF de la consigna.
+- [x] 5.2 **[usuario]** Descomprimir el zip en otra carpeta y, sin conexión, abrir `index.html`; verificar que el catálogo muestra las 6 tarjetas con sus tapas, que las cinco vistas abren desde el menú y que la consola no informa recursos faltantes.

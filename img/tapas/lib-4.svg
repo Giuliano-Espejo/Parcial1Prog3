@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <rect width="200" height="300" fill="#115e59"/>
+  <rect x="10" y="10" width="180" height="280" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <circle cx="100" cy="82" r="40" fill="#ffffff"/><circle cx="118" cy="72" r="36" fill="#115e59"/><circle cx="52" cy="48" r="3" fill="#ffffff"/><circle cx="154" cy="116" r="3" fill="#ffffff"/><circle cx="60" cy="116" r="2" fill="#ffffff"/>
+  <text x="100" y="178" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="21" font-weight="bold" fill="#ffffff"><tspan x="100" dy="0">Diario de</tspan><tspan x="100" dy="26">una NOCHE</tspan><tspan x="100" dy="26">sin luna</tspan></text>
+  <text x="100" y="272" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" fill="#ffffff"><tspan x="100" dy="0">Inés Barrionuevo</tspan></text>
+</svg>

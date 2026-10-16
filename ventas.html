@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Ventas — Librería TUP</title>
+  <meta name="description" content="Nueva venta en la Librería TUP: elegí el cliente, agregá libros con su cantidad, revisá el total y confirmá la venta.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <script src="js/comun.js" defer></script>
+  <script src="js/ventas-logica.js" defer></script>
+  <script src="js/ventas.js" defer></script>
+</head>
+<body>
+  <a class="salto" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="encabezado">
+    <p class="marca">Librería TUP</p>
+    <nav aria-label="Principal">
+      <ul class="menu">
+          <li><a href="index.html">Catálogo</a></li>
+          <li><a href="libros.html">Libros</a></li>
+          <li><a href="clientes.html">Clientes</a></li>
+          <li><a href="ventas.html" aria-current="page">Ventas</a></li>
+          <li><a href="historial.html">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido-principal" tabindex="-1">
+    <h1>Ventas</h1>
+    <div id="mensajes-almacenamiento" class="zona-mensajes" aria-live="polite"></div>
+
+    <section aria-labelledby="titulo-venta-cliente">
+      <h2 id="titulo-venta-cliente">Cliente</h2>
+      <div class="campo">
+        <label for="venta-cliente">Cliente de la venta</label>
+        <select id="venta-cliente" name="cliente" required>
+          <option value="">Seleccioná un cliente</option>
+        </select>
+      </div>
+    </section>
+
+    <section aria-labelledby="titulo-venta-renglon">
+      <h2 id="titulo-venta-renglon">Agregar libro a la venta</h2>
+      <form id="form-renglon" novalidate>
+        <div class="campo">
+          <label for="renglon-libro">Libro</label>
+          <select id="renglon-libro" name="libro" required>
+            <option value="">Seleccioná un libro</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="renglon-cantidad">Cantidad</label>
+          <input type="number" id="renglon-cantidad" name="cantidad" min="1" step="1" value="1" required>
+        </div>
+        <button type="submit" class="boton">Agregar renglón</button>
+      </form>
+    </section>
+
+    <section aria-labelledby="titulo-venta-resumen">
+      <h2 id="titulo-venta-resumen">Resumen de la venta</h2>
+
+      <div class="tabla-contenedor">
+        <table>
+          <caption>Renglones de la venta</caption>
+          <thead>
+            <tr>
+              <th scope="col">Libro</th>
+              <th scope="col">Precio unitario</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Subtotal</th>
+              <th scope="col">Acciones</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-renglones-cuerpo"></tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="3">Total</th>
+              <td id="venta-total" aria-live="polite" aria-atomic="true"></td>
+              <td></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+      <p id="estado-renglones" class="zona-mensajes" role="status">Todavía no agregaste renglones a la venta.</p>
+
+      <button type="button" id="boton-confirmar-venta" class="boton">Confirmar venta</button>
+      <div id="mensajes-venta" class="zona-mensajes" aria-live="polite"></div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>TPI Programación III — UTN-TUP · Giuliano Espejo</p>
+  </footer>
+</body>
+</html>

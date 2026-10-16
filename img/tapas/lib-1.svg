@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <rect width="200" height="300" fill="#0f766e"/>
+  <rect x="10" y="10" width="180" height="280" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M84 128 L90 56 L110 56 L116 128 Z" fill="#ffffff"/><rect x="88" y="42" width="24" height="14" fill="#e6f4f1"/><path d="M84 42 L100 28 L116 42 Z" fill="#ffffff"/><rect x="70" y="128" width="60" height="8" fill="#ffffff"/><path d="M28 70 L80 80 M172 70 L120 80" stroke="#e6f4f1" stroke-width="3"/>
+  <text x="100" y="178" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="21" font-weight="bold" fill="#ffffff"><tspan x="100" dy="0">La noche</tspan><tspan x="100" dy="26">del faro</tspan></text>
+  <text x="100" y="272" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" fill="#ffffff"><tspan x="100" dy="0">Marta Quiroga Vidal</tspan></text>
+</svg>

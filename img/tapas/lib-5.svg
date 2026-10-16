@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <rect width="200" height="300" fill="#52606d"/>
+  <rect x="10" y="10" width="180" height="280" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <path d="M100 34 V104" stroke="#ffffff" stroke-width="4"/><path d="M104 40 L146 98 H104 Z" fill="#ffffff"/><path d="M96 52 L66 98 H96 Z" fill="#e6f4f1"/><path d="M58 106 H142 L130 124 H70 Z" fill="#ffffff"/><path d="M30 134 Q50 124 70 134 T110 134 T150 134 T170 134" fill="none" stroke="#e6f4f1" stroke-width="3"/>
+  <text x="100" y="178" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="21" font-weight="bold" fill="#ffffff"><tspan x="100" dy="0">El Puerto</tspan><tspan x="100" dy="26">dormido</tspan></text>
+  <text x="100" y="272" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" fill="#ffffff"><tspan x="100" dy="0">Tomás Aldao</tspan></text>
+</svg>

@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Clientes — Librería TUP</title>
+  <meta name="description" content="Registro de clientes de la Librería TUP: formulario de alta con nombre completo y email, y listado de clientes registrados.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <script src="js/comun.js" defer></script>
+  <script src="js/clientes.js" defer></script>
+</head>
+<body>
+  <a class="salto" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="encabezado">
+    <p class="marca">Librería TUP</p>
+    <nav aria-label="Principal">
+      <ul class="menu">
+          <li><a href="index.html">Catálogo</a></li>
+          <li><a href="libros.html">Libros</a></li>
+          <li><a href="clientes.html" aria-current="page">Clientes</a></li>
+          <li><a href="ventas.html">Ventas</a></li>
+          <li><a href="historial.html">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido-principal" tabindex="-1">
+    <h1>Clientes</h1>
+    <div id="mensajes-almacenamiento" class="zona-mensajes" aria-live="polite"></div>
+
+    <section aria-labelledby="titulo-alta-cliente">
+      <h2 id="titulo-alta-cliente">Registrar cliente</h2>
+
+      <form id="form-cliente" novalidate>
+        <div class="campo">
+          <label for="cliente-nombre">Nombre completo</label>
+          <input type="text" id="cliente-nombre" name="nombre" autocomplete="name" required>
+        </div>
+        <div class="campo">
+          <label for="cliente-email">Email</label>
+          <input type="email" id="cliente-email" name="email" autocomplete="email" required>
+        </div>
+        <button type="submit" class="boton">Registrar cliente</button>
+      </form>
+      <div id="mensajes-cliente" class="zona-mensajes" aria-live="polite"></div>
+    </section>
+
+    <section aria-labelledby="titulo-listado-clientes">
+      <h2 id="titulo-listado-clientes">Listado de clientes</h2>
+
+      <div class="tabla-contenedor">
+        <table>
+          <caption>Clientes registrados</caption>
+          <thead>
+            <tr>
+              <th scope="col">Nombre completo</th>
+              <th scope="col">Email</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-clientes-cuerpo"></tbody>
+        </table>
+      </div>
+      <div id="estado-clientes" class="zona-mensajes" role="status">Todavía no hay clientes registrados.</div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>TPI Programación III — UTN-TUP · Giuliano Espejo</p>
+  </footer>
+</body>
+</html>

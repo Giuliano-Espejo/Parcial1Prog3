@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Libros — Librería TUP</title>
+  <meta name="description" content="Registro de libros de la Librería TUP: formulario de alta con título, ISBN, precio, editorial, género y autores, y listado de libros.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <script src="js/comun.js" defer></script>
+  <script src="js/libros.js" defer></script>
+</head>
+<body>
+  <a class="salto" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="encabezado">
+    <p class="marca">Librería TUP</p>
+    <nav aria-label="Principal">
+      <ul class="menu">
+          <li><a href="index.html">Catálogo</a></li>
+          <li><a href="libros.html" aria-current="page">Libros</a></li>
+          <li><a href="clientes.html">Clientes</a></li>
+          <li><a href="ventas.html">Ventas</a></li>
+          <li><a href="historial.html">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido-principal" tabindex="-1">
+    <h1>Libros</h1>
+    <div id="mensajes-almacenamiento" class="zona-mensajes" aria-live="polite"></div>
+
+    <section aria-labelledby="titulo-alta-libro">
+      <h2 id="titulo-alta-libro">Registrar libro</h2>
+
+      <form id="form-libro" novalidate>
+        <div class="campo">
+          <label for="libro-titulo">Título</label>
+          <input type="text" id="libro-titulo" name="titulo" required>
+        </div>
+        <div class="campo">
+          <label for="libro-isbn">ISBN</label>
+          <input type="text" id="libro-isbn" name="isbn" required>
+        </div>
+        <div class="campo">
+          <label for="libro-precio">Precio</label>
+          <input type="number" id="libro-precio" name="precio" min="0.01" step="0.01" required>
+        </div>
+        <div class="campo">
+          <label for="libro-editorial">Editorial</label>
+          <select id="libro-editorial" name="editorial" required>
+            <option value="">Seleccioná una editorial</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="libro-genero">Género</label>
+          <select id="libro-genero" name="genero">
+            <option value="">Sin clasificar</option>
+          </select>
+        </div>
+        <div class="campo">
+          <label for="libro-autores">Autores</label>
+          <select id="libro-autores" name="autores" multiple required aria-describedby="ayuda-autores"></select>
+          <p id="ayuda-autores" class="ayuda">Para elegir más de un autor, mantené presionada la tecla Ctrl (o Cmd en Mac) mientras hacés clic en cada uno.</p>
+        </div>
+        <button type="submit" class="boton">Registrar libro</button>
+      </form>
+      <div id="mensajes-libro" class="zona-mensajes" aria-live="polite"></div>
+    </section>
+
+    <section aria-labelledby="titulo-listado-libros">
+      <h2 id="titulo-listado-libros">Listado de libros</h2>
+
+      <div class="tabla-contenedor">
+        <table>
+          <caption>Libros registrados</caption>
+          <thead>
+            <tr>
+              <th scope="col">Título</th>
+              <th scope="col">ISBN</th>
+              <th scope="col">Editorial</th>
+              <th scope="col">Género</th>
+              <th scope="col">Autores</th>
+              <th scope="col">Precio</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-libros-cuerpo"></tbody>
+        </table>
+      </div>
+      <div id="estado-libros" class="zona-mensajes" role="status">Todavía no hay libros registrados.</div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>TPI Programación III — UTN-TUP · Giuliano Espejo</p>
+  </footer>
+</body>
+</html>

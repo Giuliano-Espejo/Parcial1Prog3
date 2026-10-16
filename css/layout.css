@@ -1,0 +1,171 @@
+/* layout.css — maquetación mobile-first (base 320 px, un breakpoint en 48em):
+   enlace de salto, encabezado, menú, main, pie, grilla de tarjetas y disposición de formularios y dl. */
+
+/* Enlace de salto: fuera de vista hasta recibir el foco (sin transición) */
+.salto {
+  position: absolute;
+  top: var(--espacio-2);
+  left: var(--espacio-2);
+  z-index: 10;
+  padding: var(--espacio-2) var(--espacio-3);
+  background: var(--color-acento);
+  color: #ffffff;
+  font-weight: 600;
+  text-decoration: none;
+  border-radius: var(--radio);
+  transform: translateY(-200%);
+}
+
+.salto:focus {
+  transform: none;
+}
+
+/* main no es un control: el foco programático del salto no dibuja recuadro */
+main[tabindex="-1"]:focus {
+  outline: none;
+}
+
+/* Estructura de página: pie al fondo de la ventana */
+body {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+/* Encabezado y menú (pantallas angostas: marca arriba, menú debajo en filas envueltas) */
+.encabezado {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  padding-block: var(--espacio-3);
+  padding-inline: max(clamp(1rem, 4vw, 2rem), calc(50% - var(--ancho-max) / 2 + clamp(1rem, 4vw, 2rem)));
+  background: var(--color-superficie);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+.marca {
+  margin: 0;
+  color: var(--color-acento);
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+
+.menu {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--espacio-1);
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.menu a {
+  display: inline-flex;
+  align-items: center;
+  min-height: var(--alto-control);
+  padding: 0 var(--espacio-3);
+  border-bottom: 3px solid transparent;
+  border-radius: var(--radio) var(--radio) 0 0;
+  color: var(--color-texto);
+  font-weight: 500;
+  text-decoration: none;
+  white-space: nowrap;
+}
+
+.menu a[aria-current="page"] {
+  background: var(--color-acento-suave);
+  border-bottom-color: var(--color-acento);
+  color: var(--color-acento-oscuro);
+  font-weight: 700;
+}
+
+@media (hover: hover) {
+  .menu a:hover {
+    text-decoration: underline;
+  }
+}
+
+/* Contenido principal */
+main {
+  flex: 1;
+  width: 100%;
+  max-width: var(--ancho-max);
+  margin-inline: auto;
+  padding: var(--espacio-4) clamp(1rem, 4vw, 2rem) var(--espacio-6);
+}
+
+main > section + section,
+main > .aviso-maqueta + section {
+  margin-top: var(--espacio-5);
+}
+
+/* Pie */
+.pie {
+  padding-block: var(--espacio-3);
+  padding-inline: max(clamp(1rem, 4vw, 2rem), calc(50% - var(--ancho-max) / 2 + clamp(1rem, 4vw, 2rem)));
+  border-top: 1px solid var(--color-borde);
+  color: var(--color-texto-suave);
+}
+
+.pie p {
+  margin: 0;
+}
+
+/* Formularios: una columna en celular */
+main form {
+  display: grid;
+  gap: var(--espacio-3);
+}
+
+[role="search"] {
+  max-width: 32rem;
+}
+
+/* Campo suelto fuera de un formulario (selector de cliente en ventas.html) */
+main > section > .campo {
+  max-width: 32rem;
+}
+
+/* Detalle de venta: pares dt/dd en dos columnas. El atributo hidden gana por regla global en base.css */
+dl {
+  display: grid;
+  grid-template-columns: max-content 1fr;
+  gap: var(--espacio-1) var(--espacio-3);
+  margin: var(--espacio-3) 0;
+}
+
+dt {
+  font-weight: 700;
+}
+
+dd {
+  margin: 0;
+  min-width: 0;
+}
+
+/* Grilla del catálogo: el ancho mínimo de tarjeta nunca supera el ancho disponible */
+.grilla-tarjetas {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(220px, 100%), 1fr));
+  gap: var(--espacio-4);
+  margin-top: var(--espacio-4);
+}
+
+/* Breakpoint principal: 768 px (en em, para que el zoom al 200 % caiga en el layout angosto) */
+@media (min-width: 48em) {
+  .encabezado {
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  main form {
+    grid-template-columns: repeat(auto-fit, minmax(16rem, 1fr));
+  }
+
+  main form .boton {
+    grid-column: 1 / -1;
+    justify-self: start;
+  }
+}

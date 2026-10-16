@@ -1,0 +1,180 @@
+/* componentes.css — componentes reutilizables: botón, campos, estado de error, tablas,
+   mensajes, aviso de maqueta y tarjetas. Se estila por clase y atributo, nunca por id.
+   No se estila la validación nativa del navegador: el error de campo lo marca JavaScript con aria-invalid. */
+
+/* Botón de acción */
+.boton {
+  min-height: var(--alto-control);
+  padding: var(--espacio-2) var(--espacio-4);
+  background: var(--color-acento);
+  color: #ffffff;
+  border: 2px solid transparent;
+  border-radius: var(--radio);
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (hover: hover) {
+  .boton:hover {
+    background: var(--color-acento-oscuro);
+  }
+}
+
+/* Campos de formulario */
+.campo {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-1);
+  min-width: 0;
+}
+
+.campo label {
+  font-weight: 600;
+}
+
+.campo input,
+.campo select {
+  width: 100%;
+  min-height: var(--alto-control);
+  padding: var(--espacio-1) var(--espacio-2);
+  background: var(--color-superficie);
+  color: var(--color-texto);
+  border: 1px solid var(--color-borde-control);
+  border-radius: var(--radio);
+}
+
+.campo select[multiple] {
+  min-height: 8rem;
+}
+
+.ayuda {
+  margin: 0;
+  color: var(--color-texto-suave);
+  font-size: 0.875rem;
+}
+
+/* Campo marcado como inválido por JavaScript: borde más grueso + color (no solo color) */
+[aria-invalid="true"] {
+  border: 2px solid var(--color-error);
+}
+
+/* Tablas: el desplazamiento horizontal ocurre dentro del contenedor, no en la página */
+.tabla-contenedor {
+  max-width: 100%;
+  overflow-x: auto;
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+caption {
+  padding: var(--espacio-2) var(--espacio-3);
+  font-weight: 600;
+  text-align: left;
+}
+
+th,
+td {
+  padding: var(--espacio-2) var(--espacio-3);
+  border-bottom: 1px solid var(--color-borde);
+}
+
+th {
+  text-align: left;
+  white-space: nowrap;
+}
+
+thead th {
+  background: var(--color-fondo);
+  font-weight: 600;
+}
+
+tfoot {
+  font-weight: 700;
+}
+
+tfoot th,
+tfoot td {
+  border-top: 2px solid var(--color-texto);
+  border-bottom: 0;
+}
+
+/* Zonas de mensajes (nunca display: none: las regiones vivas deben seguir en el árbol de accesibilidad) */
+.zona-mensajes {
+  color: var(--color-texto-suave);
+}
+
+.zona-mensajes:empty {
+  margin: 0;
+}
+
+/* Mensajes de operación: borde lateral + fondo + prefijo textual puesto por mostrarMensaje */
+.mensaje {
+  margin-block: var(--espacio-2);
+  padding: var(--espacio-2) var(--espacio-3);
+  border-left: 4px solid;
+  border-radius: var(--radio);
+}
+
+.mensaje--error {
+  color: var(--color-error);
+  border-color: var(--color-error);
+  background: var(--color-error-suave);
+}
+
+.mensaje--exito {
+  color: var(--color-exito);
+  border-color: var(--color-exito);
+  background: var(--color-exito-suave);
+}
+
+.mensaje--info {
+  color: var(--color-texto);
+  border-color: var(--color-acento);
+  background: var(--color-acento-suave);
+}
+
+/* Aviso de maqueta: borde discontinuo + negrita, distinguible sin color */
+.aviso-maqueta {
+  margin-block: var(--espacio-3);
+  padding: var(--espacio-2) var(--espacio-3);
+  background: var(--color-aviso-suave);
+  color: var(--color-texto);
+  border: 2px dashed var(--color-aviso);
+  border-radius: var(--radio);
+  font-weight: 600;
+}
+
+/* Tarjetas del catálogo (contrato para C-03: article.tarjeta con img primero, título h3) */
+.tarjeta {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+  min-width: 0;
+  padding: var(--espacio-3);
+  background: var(--color-superficie);
+  border: 1px solid var(--color-borde);
+  border-radius: var(--radio);
+  box-shadow: var(--sombra);
+}
+
+.tarjeta img {
+  width: 100%;
+  aspect-ratio: 2 / 3;
+  object-fit: cover;
+  border-radius: calc(var(--radio) / 2);
+  background: var(--color-fondo);
+}
+
+.tarjeta h3,
+.tarjeta p {
+  margin: 0;
+  min-width: 0;
+  overflow-wrap: anywhere;
+}

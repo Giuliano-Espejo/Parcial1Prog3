@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <rect width="200" height="300" fill="#1f2933"/>
+  <rect x="10" y="10" width="180" height="280" fill="none" stroke="#ffffff" stroke-width="1.5"/>
+  <rect x="46" y="40" width="108" height="90" fill="none" stroke="#e6f4f1" stroke-width="3"/><path d="M46 70 H154 M46 100 H154 M82 40 V130 M118 40 V130" stroke="#52606d" stroke-width="2"/><path d="M58 118 L82 96 L104 104 L132 62" fill="none" stroke="#e6f4f1" stroke-width="4" stroke-dasharray="8 6"/><circle cx="132" cy="62" r="6" fill="#ffffff"/>
+  <text x="100" y="178" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="21" font-weight="bold" fill="#ffffff"><tspan x="100" dy="0">Mapas del</tspan><tspan x="100" dy="26">puerto</tspan></text>
+  <text x="100" y="258" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" fill="#ffffff"><tspan x="100" dy="0">Marta Quiroga Vidal</tspan><tspan x="100" dy="14">Inés Barrionuevo</tspan></text>
+</svg>

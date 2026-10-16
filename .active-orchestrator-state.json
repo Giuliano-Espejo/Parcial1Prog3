@@ -1,0 +1,278 @@
+{
+  "version": 4,
+  "step": "done",
+  "owner": "active-orchestrator",
+  "discovery": {
+    "created_by": "discovery-research",
+    "sources": [
+      "Repaso Primer Parcial.pdf"
+    ],
+    "competitors": [],
+    "problema": "Frontend de una librería (catálogo, libros, clientes, ventas, historial) con datos simulados en el navegador, solo HTML/CSS/JS nativos. TPI de Programación III (UTN-TUP), repaso del Parcial 1.",
+    "usuarios": [
+      "Operador de la librería (consulta catálogo, altas, ventas, historial)",
+      "Docente evaluador (ejecuta casos manuales del README)"
+    ],
+    "casos_de_uso": [
+      "Buscar libros por título (case-insensitive, parcial, trim)",
+      "Alta de libro con editorial, género opcional y autores",
+      "Alta de cliente con email único",
+      "Componer y confirmar una venta con renglones",
+      "Consultar historial con precios históricos"
+    ],
+    "funcionalidades_necesarias": [
+      "Ej1 HTML: 5 vistas multipágina con nav semántico y mensajes de estado",
+      "Ej2 CSS: identidad propia, Flex/Grid, 320px y 1280px, foco visible, accesibilidad básica",
+      "Ej3 Datos: semilla (6 libros, 2 editoriales, 2 géneros, 3 autores, 3 clientes), catálogo por JS, filtro",
+      "Ej4 Altas: libros y clientes validados con preventDefault y actualización sin recargar",
+      "Ej5 Ventas: renglones, subtotales/total 2 decimales, historial inmutable con precio histórico",
+      "Ej6 Cierre: localStorage sin duplicar semilla, README con casos manuales ejecutados"
+    ],
+    "funcionalidades_opcionales": [
+      "Editar/eliminar libros y clientes (fuera de alcance)",
+      "ABM de editoriales/géneros/autores (fuera de alcance)",
+      "Stock, cobros, facturación, login, fetch (fuera de alcance)"
+    ],
+    "reglas_de_negocio": [
+      "ISBN no vacío y único, comparado sin espacios ni guiones",
+      "Precio numérico > 0",
+      "Editorial existente; >=1 autor, todos existentes; género opcional (existente si se asigna); sin género = 'Sin clasificar'",
+      "Cliente: nombre y email no vacíos, email válido, único con trim y case-insensitive",
+      "Venta: cliente obligatorio, >=1 renglón, cantidad entera > 0",
+      "Libro repetido en venta: se suma la cantidad al renglón existente y se avisa",
+      "Subtotal = cantidad x precio; total = suma; 2 decimales",
+      "Precio unitario y datos descriptivos copiados a la venta como valores históricos",
+      "Ventas confirmadas inmutables; confirmación limpia el formulario",
+      "Semilla solo en primer inicio, sin duplicar al recargar"
+    ],
+    "integraciones": [],
+    "restricciones": [
+      "Solo HTML/CSS/JS nativos, sin librerías, frameworks ni CDNs",
+      "Sin npm ni build; se abre index.html directo (file://) => scripts clásicos, sin type=module",
+      "Multipágina: index.html, libros.html, clientes.html, ventas.html, historial.html; datos compartidos vía localStorage desde Etapa 2",
+      "Testing solo con casos manuales en README; Strict TDD desactivado en este proyecto",
+      "Trabajo individual",
+      "Etapa 1 (maqueta Ej1+Ej2 + 1 interacción) y Etapa 2 (Ej3-Ej6)"
+    ],
+    "riesgos": [
+      "ES modules no cargan con file://",
+      "Prueba guiada de precio histórico editando localStorage a mano: estructura debe ser simple y documentada",
+      "Duplicación de la semilla al recargar",
+      "innerHTML con datos de usuario viola la consigna",
+      "Sin tests automatizados: regresiones solo vía casos manuales"
+    ],
+    "preguntas_abiertas": [
+      "Fechas, canal y modalidad de entrega (las comunica el docente)"
+    ],
+    "decisiones": {
+      "vistas": "multipagina",
+      "libro_repetido_en_venta": "sumar_cantidad",
+      "testing": "solo_casos_manuales",
+      "autoria": "individual",
+      "autor": "Giuliano Espejo",
+      "imagenes": "Tapas propias en SVG (img/tapas/lib-N.svg); sin imágenes de terceros; el README indica que son obra propia"
+    }
+  },
+  "kb": {
+    "created_by": "kb-creator",
+    "source": "ingest",
+    "discovery": {
+      "problem": "Frontend de una librería (catálogo, libros, clientes, ventas, historial) con datos simulados en el navegador, solo HTML/CSS/JS nativos. TPI de Programación III (UTN-TUP), repaso del Parcial 1.",
+      "system_type": "web_app (frontend estático multipágina, sin backend)",
+      "domain": "retail / librería (catálogo, clientes, ventas)",
+      "scale": "single_user",
+      "stack": [
+        "HTML5",
+        "CSS3",
+        "JavaScript nativo (scripts clásicos)",
+        "localStorage"
+      ],
+      "needs_infra": false
+    },
+    "files": [
+      "knowledge-base/01_vision_y_objetivos.md",
+      "knowledge-base/02_descripcion_general.md",
+      "knowledge-base/03_actores_y_roles.md",
+      "knowledge-base/04_modelo_de_datos.md",
+      "knowledge-base/05_reglas_de_negocio.md",
+      "knowledge-base/06_funcionalidades.md",
+      "knowledge-base/07_flujos_principales.md",
+      "knowledge-base/08_arquitectura_propuesta.md",
+      "knowledge-base/09_decisiones_y_supuestos.md",
+      "knowledge-base/10_preguntas_abiertas.md",
+      "knowledge-base/README.md"
+    ]
+  },
+  "roadmap": {
+    "created_by": "roadmap-generator",
+    "source": "CHANGES.md",
+    "changes": [
+      "C-01",
+      "C-02",
+      "C-03",
+      "C-04",
+      "C-05",
+      "C-06",
+      "C-07",
+      "C-08",
+      "C-09"
+    ]
+  },
+  "skills": {
+    "recommended": [
+      {
+        "name": "accessibility",
+        "source": "addyosmani/web-quality-skills",
+        "install_ref": "addyosmani/web-quality-skills@accessibility",
+        "url": "https://skills.sh/addyosmani/web-quality-skills/accessibility",
+        "installs": "61.4K",
+        "stars": "2.9K",
+        "priority": 1,
+        "domain": "accessibility / WCAG 2.2",
+        "why": "Guia WCAG 2.2 (POUR): alt/text alternatives, foco visible, teclado, labels y errores de formulario, checklist manual. Cubre el requisito de accesibilidad del Ej2 y la validacion accesible del Ej4.",
+        "compatibility": "compatible",
+        "notes": "Framework-agnostic. Menciona Lighthouse/axe-core via npx/npm solo como herramienta opcional de auditoria (no se instala en el proyecto); alcanza con el checklist manual."
+      },
+      {
+        "name": "fixing-accessibility",
+        "source": "ibelick/ui-skills",
+        "install_ref": "ibelick/ui-skills@fixing-accessibility",
+        "url": "https://skills.sh/ibelick/ui-skills/fixing-accessibility",
+        "installs": "20.3K",
+        "stars": "9.8K",
+        "priority": 2,
+        "domain": "accessibility / semantica / teclado / formularios",
+        "why": "Reglas cortas y priorizadas (nombres accesibles, teclado, foco, semantica, errores de formulario); prefiere HTML nativo sobre ARIA y cambios minimos. Ideal como revisor rapido por archivo.",
+        "compatibility": "compatible",
+        "notes": "SKILL.md de ~4.7 KB, sin dependencias ni tooling. Se solapa con 'accessibility' de addyosmani: instalar uno solo si se quiere minimizar skills."
+      },
+      {
+        "name": "responsive-design",
+        "source": "wshobson/agents",
+        "install_ref": "wshobson/agents@responsive-design",
+        "url": "https://skills.sh/wshobson/agents/responsive-design",
+        "installs": "20.4K",
+        "stars": "40.8K",
+        "priority": 3,
+        "domain": "CSS responsive / Flexbox / Grid",
+        "why": "Mobile-first, CSS Grid auto-fit/Flexbox, clamp() y breakpoints por contenido. Encaja con el requisito de 320px y 1280px del Ej2 sin framework.",
+        "compatibility": "compatible",
+        "notes": "CSS nativo puro. Container queries y subgrid son opcionales; para 320/1280 alcanza con media queries mobile-first. Usar solo los patrones de CSS, ignorar cualquier mencion a frameworks."
+      },
+      {
+        "name": "accessibility-compliance",
+        "source": "wshobson/agents",
+        "install_ref": "wshobson/agents@accessibility-compliance",
+        "url": "https://skills.sh/wshobson/agents/accessibility-compliance",
+        "installs": "14.3K",
+        "stars": "40.8K",
+        "priority": 4,
+        "domain": "accessibility / patrones de implementacion",
+        "why": "Patrones concretos: botones con indicador de foco, skip links, formularios con errores anunciados, live regions para mensajes de estado dinamicos (aplica a los mensajes de estado del Ej1/Ej4/Ej5).",
+        "compatibility": "compatible",
+        "notes": "Alternativa/complemento de 'accessibility'. Los ejemplos pueden estar en JS/JSX: traducir a JS nativo."
+      },
+      {
+        "name": "create-web-form",
+        "source": "github/awesome-copilot",
+        "install_ref": "github/awesome-copilot@create-web-form",
+        "url": "https://skills.sh/github/awesome-copilot/create-web-form",
+        "installs": "7.0K",
+        "stars": "40.0K",
+        "priority": 5,
+        "domain": "formularios / validacion",
+        "why": "Sintaxis de formularios HTML, estilos CSS, validacion con JavaScript y buenas practicas de accesibilidad. Cubre el alta de libros/clientes y la venta (Ej4/Ej5).",
+        "compatibility": "partial",
+        "notes": "Incluye tambien procesamiento server-side (PHP/Python), base de datos y red: NO aplican (proyecto sin backend). Usar solo las secciones HTML/CSS/JS de validacion cliente."
+      },
+      {
+        "name": "semantic-html-and-seo",
+        "source": "dembrandt/dembrandt-skills",
+        "install_ref": "dembrandt/dembrandt-skills@semantic-html-and-seo",
+        "url": "https://skills.sh/dembrandt/dembrandt-skills/semantic-html-and-seo",
+        "installs": "771",
+        "stars": "74",
+        "priority": 6,
+        "domain": "HTML5 semantico",
+        "why": "Unico resultado centrado en HTML5 semantico (header/nav/main/section/article/footer, jerarquia de headings, metadatos). Cubre el Ej1.",
+        "compatibility": "compatible",
+        "notes": "Bajo conteo de installs (<1K) y repo chico (74 stars): tratar con cautela; la parte SEO es prescindible. Uso opcional."
+      },
+      {
+        "name": "wcag-audit-patterns",
+        "source": "wshobson/agents",
+        "install_ref": "wshobson/agents@wcag-audit-patterns",
+        "url": "https://skills.sh/wshobson/agents/wcag-audit-patterns",
+        "installs": "12.2K",
+        "stars": "40.8K",
+        "priority": 7,
+        "domain": "accessibility / auditoria",
+        "why": "Guia para auditar contra WCAG 2.2 con estrategias de remediacion; util para la revision final antes de la entrega.",
+        "compatibility": "compatible",
+        "notes": "Orientada a auditorias formales (VPAT/ADA): mas de lo que el TPI necesita. Opcional."
+      },
+      {
+        "name": "web-design-guidelines",
+        "source": "vercel-labs/agent-skills",
+        "install_ref": "vercel-labs/agent-skills@web-design-guidelines",
+        "url": "https://skills.sh/vercel-labs/agent-skills/web-design-guidelines",
+        "installs": "741.1K",
+        "stars": "32.4K",
+        "priority": 8,
+        "domain": "revision de UI / accesibilidad / UX",
+        "why": "Revisor de codigo UI contra las Web Interface Guidelines (accesibilidad, formularios, foco, UX) con salida archivo:linea.",
+        "compatibility": "partial",
+        "notes": "Descarga las reglas desde GitHub en cada ejecucion (requiere red; Socket audit = Warn). Es solo revisor, no agrega dependencias al proyecto. Opcional."
+      },
+      {
+        "name": "frontend-design",
+        "source": "anthropics/skills",
+        "install_ref": "anthropics/skills@frontend-design",
+        "url": "https://skills.sh/anthropics/skills/frontend-design",
+        "installs": "990.6K",
+        "stars": "n/d",
+        "priority": 9,
+        "domain": "diseno visual / identidad propia (CSS)",
+        "why": "Guia para dar identidad visual propia (tipografia, paleta con variables CSS, composicion): util para el requisito de 'identidad propia' del Ej2.",
+        "compatibility": "partial",
+        "notes": "Genera HTML/CSS/JS pero tambien React/Vue y suele apoyarse en fuentes web externas: respetar 'sin CDNs' (fuentes del sistema o locales) y sin frameworks. Oficial de Anthropic, 990K installs."
+      }
+    ],
+    "installed": [
+      "accessibility",
+      "responsive-design",
+      "semantic-html-and-seo"
+    ],
+    "created_by": "find-skill",
+    "unavailable": [
+      {
+        "name": "create-web-form",
+        "repo": "github/awesome-copilot",
+        "reason": "ya no existe en el repo (433 skills, ninguna con ese nombre)"
+      }
+    ]
+  },
+  "registry": {
+    "created_by": "skill-registry",
+    "file": ".atl/skill-registry.md",
+    "skills_count": 30
+  },
+  "agents": {
+    "created_by": "agent-instruction",
+    "files": [
+      "CLAUDE.md",
+      "AGENTS.md"
+    ],
+    "reglas_applied": [
+      "Sin librerías/frameworks/CDNs/npm/build",
+      "Scripts clásicos, sin type=module",
+      "Sin innerHTML con datos del usuario",
+      "Precio histórico copiado al confirmar la venta",
+      "Funciones puras separadas de DOM/localStorage; secciones Lógica/Render/Eventos/Inicio",
+      "Sin tests automatizados ni Strict TDD; casos manuales (sobrescribe el global)",
+      "Accesibilidad básica: label, foco visible, errores con texto",
+      "Carpetas internas fuera de la entrega",
+      "No commitear ni buildear sin pedido"
+    ]
+  }
+}

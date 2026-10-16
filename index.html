@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Catálogo de libros — Librería TUP</title>
+  <meta name="description" content="Catálogo de la Librería TUP: consultá los libros disponibles con su autor, editorial, género y precio, y buscalos por título.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <script src="js/comun.js" defer></script>
+  <script src="js/catalogo.js" defer></script>
+</head>
+<body>
+  <a class="salto" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="encabezado">
+    <p class="marca">Librería TUP</p>
+    <nav aria-label="Principal">
+      <ul class="menu">
+          <li><a href="index.html" aria-current="page">Catálogo</a></li>
+          <li><a href="libros.html">Libros</a></li>
+          <li><a href="clientes.html">Clientes</a></li>
+          <li><a href="ventas.html">Ventas</a></li>
+          <li><a href="historial.html">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido-principal" tabindex="-1">
+    <h1>Librería TUP</h1>
+    <div id="mensajes-almacenamiento" class="zona-mensajes" aria-live="polite"></div>
+
+    <section aria-labelledby="titulo-catalogo">
+      <h2 id="titulo-catalogo">Catálogo</h2>
+
+      <form id="form-busqueda" role="search">
+        <div class="campo">
+          <label for="buscador-titulo">Buscar por título</label>
+          <input type="search" id="buscador-titulo" name="buscador-titulo" autocomplete="off">
+        </div>
+      </form>
+
+      <div id="catalogo" class="grilla-tarjetas"></div>
+      <div id="estado-catalogo" class="zona-mensajes" role="status">Todavía no hay libros en el catálogo.</div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>TPI Programación III — UTN-TUP · Giuliano Espejo</p>
+  </footer>
+</body>
+</html>

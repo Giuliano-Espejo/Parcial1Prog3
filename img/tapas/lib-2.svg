@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 300" width="200" height="300">
+  <rect width="200" height="300" fill="#e6f4f1"/>
+  <rect x="10" y="10" width="180" height="280" fill="none" stroke="#1f2933" stroke-width="1.5"/>
+  <rect x="48" y="52" width="104" height="72" fill="#ffffff" stroke="#115e59" stroke-width="3"/><path d="M48 52 L100 96 L152 52" fill="none" stroke="#115e59" stroke-width="3"/><circle cx="100" cy="98" r="8" fill="#0f766e"/>
+  <text x="100" y="178" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="21" font-weight="bold" fill="#1f2933"><tspan x="100" dy="0">Cartas a</tspan><tspan x="100" dy="26">la Noche</tspan></text>
+  <text x="100" y="272" text-anchor="middle" font-family="system-ui, -apple-system, 'Segoe UI', Roboto, Arial, sans-serif" font-size="12" fill="#1f2933"><tspan x="100" dy="0">Tomás Aldao</tspan></text>
+</svg>

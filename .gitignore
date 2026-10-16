@@ -1,0 +1,6 @@
+# Registry local no versionado (ver AGENTS.md)
+.atl/
+
+# OS / temp junk
+Thumbs.db
+Desktop.ini

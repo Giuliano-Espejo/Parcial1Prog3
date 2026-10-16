@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Historial de ventas — Librería TUP</title>
+  <meta name="description" content="Historial de ventas de la Librería TUP: listado de ventas confirmadas con su fecha, cliente y total, y detalle de cada una.">
+  <link rel="stylesheet" href="css/base.css">
+  <link rel="stylesheet" href="css/layout.css">
+  <link rel="stylesheet" href="css/componentes.css">
+  <script src="js/comun.js" defer></script>
+  <script src="js/historial.js" defer></script>
+</head>
+<body>
+  <a class="salto" href="#contenido-principal">Saltar al contenido principal</a>
+
+  <header class="encabezado">
+    <p class="marca">Librería TUP</p>
+    <nav aria-label="Principal">
+      <ul class="menu">
+          <li><a href="index.html">Catálogo</a></li>
+          <li><a href="libros.html">Libros</a></li>
+          <li><a href="clientes.html">Clientes</a></li>
+          <li><a href="ventas.html">Ventas</a></li>
+          <li><a href="historial.html" aria-current="page">Historial</a></li>
+      </ul>
+    </nav>
+  </header>
+
+  <main id="contenido-principal" tabindex="-1">
+    <h1>Historial de ventas</h1>
+    <div id="mensajes-almacenamiento" class="zona-mensajes" aria-live="polite"></div>
+
+    <section aria-labelledby="titulo-listado-ventas">
+      <h2 id="titulo-listado-ventas">Ventas confirmadas</h2>
+
+      <div class="tabla-contenedor">
+        <table>
+          <caption>Ventas confirmadas</caption>
+          <thead>
+            <tr>
+              <th scope="col">N.º de venta</th>
+              <th scope="col">Fecha</th>
+              <th scope="col">Cliente</th>
+              <th scope="col">Total</th>
+              <th scope="col">Detalle</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-ventas-cuerpo"></tbody>
+        </table>
+      </div>
+      <p id="estado-historial" class="zona-mensajes" role="status">Todavía no hay ventas registradas.</p>
+    </section>
+
+    <section id="detalle-venta" aria-labelledby="titulo-detalle-venta">
+      <h2 id="titulo-detalle-venta" tabindex="-1">Detalle de la venta</h2>
+      <p id="estado-detalle" class="zona-mensajes" role="status">Seleccioná una venta para ver su detalle.</p>
+
+      <dl id="detalle-datos" hidden>
+        <dt>Cliente</dt>
+        <dd id="detalle-cliente"></dd>
+        <dt>Email</dt>
+        <dd id="detalle-email"></dd>
+        <dt>Fecha</dt>
+        <dd id="detalle-fecha"></dd>
+      </dl>
+
+      <div class="tabla-contenedor" hidden>
+        <table>
+          <caption>Renglones de la venta seleccionada</caption>
+          <thead>
+            <tr>
+              <th scope="col">Libro</th>
+              <th scope="col">ISBN</th>
+              <th scope="col">Precio unitario</th>
+              <th scope="col">Cantidad</th>
+              <th scope="col">Subtotal</th>
+            </tr>
+          </thead>
+          <tbody id="tabla-detalle-cuerpo"></tbody>
+          <tfoot>
+            <tr>
+              <th scope="row" colspan="4">Total</th>
+              <td id="detalle-total"></td>
+            </tr>
+          </tfoot>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="pie">
+    <p>TPI Programación III — UTN-TUP · Giuliano Espejo</p>
+  </footer>
+</body>
+</html>

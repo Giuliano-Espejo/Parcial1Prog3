@@ -1,0 +1,118 @@
+/* base.css — variables (custom properties), reset mínimo, tipografía, enlaces, foco visible y movimiento.
+   Toda la identidad visual (colores, fuente, espaciados, radio, sombra) se define acá y el resto de
+   las hojas la consume con var(). Cambiar el acento = editar --color-acento, -oscuro y -suave. */
+
+:root {
+  /* Superficies y texto */
+  --color-fondo: #f7f8fa;
+  --color-superficie: #ffffff;
+  --color-texto: #1f2933;
+  --color-texto-suave: #52606d;
+
+  /* Bordes */
+  --color-borde: #d5dbe3;
+  --color-borde-control: #6b7280;
+
+  /* Acento único (verde azulado) y variantes del mismo tono */
+  --color-acento: #0f766e;
+  --color-acento-oscuro: #115e59;
+  --color-acento-suave: #e6f4f1;
+
+  /* Estados semánticos: solo para comunicar estado, nunca decoración */
+  --color-error: #b42318;
+  --color-error-suave: #fdecea;
+  --color-exito: #166534;
+  --color-exito-suave: #e8f5ec;
+  --color-aviso: #8a4b08;
+  --color-aviso-suave: #fff7e6;
+
+  /* Tipografía */
+  --fuente: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+
+  /* Espaciado */
+  --espacio-1: 0.25rem;
+  --espacio-2: 0.5rem;
+  --espacio-3: 1rem;
+  --espacio-4: 1.5rem;
+  --espacio-5: 2rem;
+  --espacio-6: 3rem;
+
+  /* Forma y tamaño */
+  --radio: 0.5rem;
+  --sombra: 0 1px 2px rgb(31 41 51 / 0.06), 0 2px 8px rgb(31 41 51 / 0.08);
+  --ancho-max: 72rem;
+  --alto-control: 2.75rem;
+}
+
+/* Reset mínimo */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Ninguna regla de display debe volver visible un elemento con hidden */
+[hidden] {
+  display: none !important;
+}
+
+/* Tipografía base */
+html {
+  font-size: 100%;
+}
+
+body {
+  font-family: var(--fuente);
+  line-height: 1.5;
+  color: var(--color-texto);
+  background: var(--color-fondo);
+}
+
+h1,
+h2 {
+  line-height: 1.25;
+}
+
+h1 {
+  font-size: clamp(1.75rem, 1.4rem + 1.5vw, 2.25rem);
+}
+
+h2 {
+  font-size: clamp(1.25rem, 1.1rem + 0.75vw, 1.5rem);
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+/* Enlaces */
+a {
+  color: var(--color-acento);
+  text-decoration: underline;
+}
+
+/* Foco visible global (anillo de acento sobre fondo claro) */
+:focus-visible {
+  outline: 3px solid var(--color-acento);
+  outline-offset: 2px;
+}
+
+/* Movimiento: la única transición existe solo si el usuario no pidió reducirlo */
+@media (prefers-reduced-motion: no-preference) {
+  .boton {
+    transition: background-color 150ms ease;
+  }
+}
